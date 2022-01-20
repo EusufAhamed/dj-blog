@@ -7,6 +7,7 @@ from user.models import User
 # Create your views here.
 
 def signinview(request):
+    data = {}
     return render(request, 'auth/signin.html')
 
 # def signupview(request):
