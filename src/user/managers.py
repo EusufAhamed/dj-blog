@@ -1,4 +1,5 @@
 from django.contrib.auth.models import BaseUserManager
+# from utils.slug import slugify
 
 class UserManager(BaseUserManager):
     def create_user(self, username, email, password, **extra_fields):
@@ -10,6 +11,7 @@ class UserManager(BaseUserManager):
             raise ValueError('password must be set.')
 
         email = self.normalize_email(email)
+        # slug = slugify(username)
         user = self.model(email=email, username=username, **extra_fields)
         user.set_password(password)
         user.save()

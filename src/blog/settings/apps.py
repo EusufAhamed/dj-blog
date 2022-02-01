@@ -10,7 +10,7 @@ DJANGO_APPS = [
 ]
 
 THIRD_PARTY_APPS  = [
-
+    'ckeditor',
 ]
 
 LOCAL_APPS = [
@@ -34,7 +34,7 @@ ROOT_URLCONF = 'blog.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': ['blog/templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

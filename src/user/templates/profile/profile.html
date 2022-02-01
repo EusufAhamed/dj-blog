@@ -1,0 +1,92 @@
+{% extends "base.html" %} 
+{% load static %} 
+{% block body %}
+<!-- Site header -->
+<div class="site-content">
+    <!-- atbs-block author -->
+    <div class="atbs-block atbs-block--fullwidth module-author">
+        <div class="container container--narrow">
+            <div class="post--grid-a__inner">
+                <div class="author-box" {% if userinfo.profile.cover_image %} style="background-image:url({{ userinfo.profile.cover_image.url }});" {% endif %}>
+                    <div class="author-box__image">
+                        <div class="author-avatar">
+                            {% if userinfo.profile.profile_image %}
+                                <img class="avatar photo" src="{{ userinfo.profile.profile_image.url }}">
+                            {% endif %}
+                        </div>
+                    </div>
+                    <div class="author-box__text">
+                        <div class="author-name meta-font">
+                            <a href="javascript:void(0)">{{ userinfo.profile.name }}</a>
+                        </div>
+                        <div class="author-bio">
+                            {{ userinfo.profile.about|safe }}
+                        </div>
+                        <div class="author-info">
+                            <div class="row--vertical-center">
+                                <ul class="list-unstyled list-horizontal list-space-sm">
+                                    <li><a href="mailto:{{ userinfo.email }}"><i class="mdicon mdicon-mail_outline"></i><span class="sr-only">E-mail</span></a></li>
+                                    <li><a href="{{ userinfo.profile.twitter }}"><i class="mdicon mdicon-twitter"></i><span class="sr-only">Twitter</span></a></li>
+                                    <li><a href="{{ userinfo.profile.facebook }}"><i class="mdicon mdicon-facebook"></i><span class="sr-only">Facebook</span></a></li>
+                                    <li><a href="{{ userinfo.profile.google_plus }}"><i class="mdicon mdicon-google-plus"></i><span class="sr-only">Google+</span></a></li>
+                                    <li><a href="{{ userinfo.profile.instagram }}"><i class="mdicon mdicon-instagram"></i><span class="sr-only">Instagram</span></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- atbs-block author -->
+
+    <!-- atbs-block  atbs-block-fullwidth -->
+    <div class="atbs-block atbs-block--fullwidth  ">
+        <div class="container container--narrow">
+            <div class="atbs-block atbs-posts-list">
+                <div class="posts-list">
+                    <!-- category-2 -->
+                    <div class="post--vertical-list row margin-bottom-40">
+                        <div class="col-md-6 col-sm-6  post--vertical-list__item">
+                            <article class="post post--vertical">
+                                <div class="post__thumb">
+                                    <div class="background-img" style="background-image:url();"></div>
+                                    <a class="link-overlay" href="single-1.html"></a>
+                                    <div class="post-date date-style-2">
+                                        <time class="time published" datetime="2016-08-20T08:53+00:00" title="August 20, 2016 at 08:53 am">
+                                            <span class="post-day">20</span>
+                                            <span class="post-th">Feb</span>
+                                        </time>
+                                    </div>
+                                </div>
+                                <div class="post__text">
+                                    <a class="post__cat " href="category-1.html">fashion</a>
+                                    <h3 class="post__title"> <a href="single-1.html"> The Journey of a Thousand Miles Begins With One Step</a></h3>
+                                    <div class="post__excerpt">Risus commodo viverra maecenas accumsan lacus vel facilisis. Quis ipsum suspendisse ultrices gravida. </div>
+                                    <div class="post__readmore clearfix ">
+                                        <a href="single-1.html" class="button__readmore"><span class="readmore__text">read More </span></a>
+                                    </div>
+                                </div>
+                            </article>
+                        </div>
+                    </div>
+                    <!-- category-2 -->
+                </div>
+                <nav class="atbs-pagination ">
+                    <h4 class="atbs-pagination__title sr-only">Posts navigation</h4>
+                    <div class="atbs-pagination__links ">
+                        <a class="atbs-pagination__item atbs-pagination-active__item " href="#">1</a>
+                        <a class="atbs-pagination__item" href="#">2</a>
+                        <a class="atbs-pagination__item" href="#">3</a>
+                        <span class="atbs-pagination__item atbs-pagination__dots">...</span>
+                        <a class="atbs-pagination__item" href="#">Next page</a>
+                        <a class="atbs-pagination__item atbs-pagination__item-next" href="#"><i class="mdicon mdicon-arrow_forward"></i></a>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </div>
+    <!-- atbs-block  atbs-block-fullwidth -->
+</div>
+<!-- .site-content -->
+{% endblock %}

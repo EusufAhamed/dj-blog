@@ -23,6 +23,8 @@ DEBUG = env('DEBUG')
 ALLOWED_HOSTS = ['*']
 
 AUTH_USER_MODEL = 'user.User'
+# LOGIN_REDIRECT_URL = 'home'
+# LOGOUT_REDIRECT_URL = 'home'
 
 # Internationalization
 # https://docs.djangoproject.com/en/4.0/topics/i18n/
@@ -36,19 +38,18 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
 STATIC_URL = '/static/'
-# STATICFILES_DIRS = [
-#     'user/static/',
-# ]
+STATIC_ROOT = BASE_DIR.parent / 'static'
+STATICFILES_DIRS = [
+    'user/static/',
+    'blog/static/',
+]
 
-# STATICFILES_FINDERS = (
-# 'django.contrib.staticfiles.finders.AppDirectoriesFinder',
-# 'django.contrib.staticfiles.finders.FileSystemFinder',
-# )
-
-# STATIC_ROOT = BASE_DIR / 'static'
+MEDIA_URL = '/media/'
+MEDIA_ROOT = BASE_DIR.parent / 'media'
 
 DB_NAME = env('DB_NAME')
 DB_USER = env('DB_USER')
 DB_PASS = env('DB_PASS')
 DB_HOST = env('DB_HOST')
 DB_PORT = env('DB_PORT')
+
