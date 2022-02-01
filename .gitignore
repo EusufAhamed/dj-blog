@@ -10,3 +10,7 @@ __pycache__/
 ### Environments ###
 .env
 blogEnv
+src/static
+src/media
+src/user/not_necessary
+todo.md
