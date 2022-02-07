@@ -1,76 +1,18 @@
 {% load static %}
 <!-- .site-footer -->
-         <footer class="site-footer site-footer--white site-footer site-footer__section site-footer__section--flex ">
-            <div class="site-footer__section site-footer__section-top">
-               <div class="container">
-                  {% comment %} 
-                  <div class="atbs-block footer-instagram">
-                     <ul class="list-unstyled ">
-                        <li class="instagram-item">
-                           <a href="#">
-                           <img src="{% static 'img/x17.jpg.pagespeed.ic.-tbS3suvQj.jpg' %}" alt="image"/>
-                           </a>
-                        </li>
-                        <li class="instagram-item">
-                           <a href="#">
-                           <img src="{% static 'img/x6.jpg.pagespeed.ic.zGVaKEM-BG.jpg' %}" alt="image"/>
-                           </a>
-                        </li>
-                        <li class="instagram-item">
-                           <a href="#">
-                           <img src="{% static 'img/7.jpg.pagespeed.ce.vP4U9m1j1d.jpg' %}" alt="image"/>
-                           </a>
-                        </li>
-                        <li class="instagram-item">
-                           <a href="#">
-                           <img src="{% static 'img/x15.jpg.pagespeed.ic.W5mBIV_yjP.jpg' %}" alt="image"/>
-                           </a>
-                        </li>
-                     </ul>
-                     <div class="clearfix"></div>
-                  </div> 
-                  {% endcomment %}
-                  <div class="site-footer__section-inner site-footer__section-middle">
-                     <div class="site-footer__section-left">
-                        <div class="footer-info">
-                           <ul class="list-unstyled list-horizontal">
-                              <li><a href="#"><i class="mdicon mdicon-mail_outline"></i>designuptodate@gmail.com</a></li>
-                              <li><a href="#"><i class="mdicon mdicon-phone"></i>+ 123 456 789 </a></li>
-                           </ul>
-                        </div>
-                     </div>
-                     <div class="site-footer__section-center text-center">
-                        <div class="site-logo">
-                           <a href="home-1.html">
-                              <!-- logo open -->
-                              <img src="{% static 'img/xlogo_03.png.pagespeed.ic.O75lOy8UBz.png' %}" alt="logo">
-                              <!-- logo close -->
-                           </a>
-                        </div>
-                     </div>
-                     <div class="site-footer__section-right">
-                        <ul class="footer-social-list social-list social-list--md  list-horizontal">
-                           <li><a href="#" target="_blank"><i class="mdicon mdicon-facebook"></i></a></li>
-                           <li><a href="#" target="_blank"><i class="mdicon mdicon-twitter"></i></a></li>
-                           <li><a href="#" target="_blank"><i class="mdicon mdicon-linkedin"></i></a></li>
-                        </ul>
-                     </div>
-                  </div>
-               </div>
+<footer class="site-footer site-footer--white site-footer site-footer__section site-footer__section--flex">
+    <div class="site-footer__section site-footer__section-top"></div>
+    <div class="site-footer__section site-footer__section-bottom">
+        <div class="container">
+            <div class="text-center">
+                <nav class="footer-menu footer-menu--bold">
+                    <ul id="menu-footer-menu" class="navigation navigation--footer navigation--inline">
+                        <li><a href="{% url 'home' %}">Home</a></li>
+                        <li><a href="javascript:void(0)">contact</a></li>
+                    </ul>
+                </nav>
             </div>
-            <div class="site-footer__section site-footer__section-bottom">
-               <div class="container">
-                  <div class="text-center">
-                     <nav class="footer-menu footer-menu--bold ">
-                        <ul id="menu-footer-menu" class="navigation navigation--footer navigation--inline">
-                           <li><a href="home-1.html">Home</a></li>
-                           <li><a href="https://designuptodate.com/">More Theme</a></li>
-                           <li><a href="https://themeforest.net/user/designuptodate/portfolio">Portfolio</a></li>
-                           <li><a href="contact.html">contact</a></li>
-                        </ul>
-                     </nav>
-                  </div>
-               </div>
-            </div>
-         </footer>
-         <!-- .site-footer -->
+        </div>
+    </div>
+</footer>
+<!-- .site-footer -->

@@ -1,0 +1,54 @@
+{% load static %}
+<!-- Sticky header -->
+<div id="atbs-sticky-header" class="sticky-header js-sticky-header">
+    <!-- Navigation bar -->
+    <nav class="navigation-bar navigation-bar--fullwidth  hidden-xs hidden-sm">
+        <div class="container">
+            <div class="navigation-bar__inner">
+                <div class="header-branding navigation-bar__section">
+                    <div class="site-logo header-logo">
+                        <a href="{% url 'home' %}">
+                            <img src="{% static 'img/xlogo_03.png.pagespeed.ic.O75lOy8UBz.png' %}" alt="logo"/>
+                        </a>
+                    </div>
+                </div>
+                <div class="navigation-wrapper navigation-bar__section js-priority-nav">
+                    <ul id="menu-main-menu-1" class="navigation navigation--main navigation--inline">
+                        <li class="menu-item-cat-1"><a href="{% url 'home' %}" class="active">Home</a></li>
+                        <li class="menu-item-cat-1"><a href="{% url 'home' %}" class="active">Trending</a></li>
+
+                        <li class="menu-item-cat-1 menu-item-has-children">
+                            <a href="javascript:void(0)">Category</a>
+                            <ul class="sub-menu">
+                                {% for category in categories %}
+                                    <li><a href="single-1.html">{{ category.name }}</a></li>
+                                {% endfor %}
+                            </ul>
+                        </li>
+
+                        {% if user.is_authenticated %}
+                            <li class="menu-item-cat-1 menu-item-has-children">
+                                <a href="javascript:void(0)">{{ user.profile.name }}</a>
+                                <ul class="sub-menu">
+                                    <li><a href="{% url 'user:profileview' user.username %}">My Profile</a></li>
+                                    <li><a href="{% url 'post:addPost' %}">Add Post</a></li>
+                                    <li><a href="{% url 'user:profileUpdateView' user.username %}">Settings</a></li>
+                                    <li><a href="{% url 'user:logoutview' %}">Logout</a></li>
+                                </ul>
+                            </li>
+                        {% else %}
+                            <li class="menu-item-cat-1">
+                                <a href="{% url 'user:signinview' %}">Login</a> /
+                                <a href="{% url 'user:signupview' %}">Register</a>
+                            </li>
+                        {% endif %}
+                    </ul>
+                </div>
+            </div>
+            <!-- .navigation-bar__inner -->
+        </div>
+        <!-- .container -->
+    </nav>
+    <!-- Navigation bar -->
+</div>
+<!-- Sticky header -->

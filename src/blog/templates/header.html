@@ -3,7 +3,7 @@
 <header class="site-header ">
     <!-- version-white-->
     <!-- Mobile header -->
-    <div id="atbs-mobile-header" class="mobile-header  visible-xs visible-sm header_home">
+    <div id="atbs-mobile-header" class="mobile-header visible-xs visible-sm header_home">
         <div class="mobile-header__inner mobile-header__inner--flex">
             <div class="header-branding header-branding--mobile mobile-header__section text-left">
                 <div class="header-logo header-logo--mobile flexbox__item text-left">
@@ -17,8 +17,7 @@
                 <a href="#atbs-offcanvas-primary" class="offcanvas-menu-toggle mobile-header-btn js-atbs-offcanvas-toggle">
                     <i class="mdicon mdicon-menu mdicon--last hidden-xs"></i><i class="mdicon mdicon-menu visible-xs-inline-block"></i>
                 </a>
-                <button type="submit" class="navigation-bar-btn js-search-dropdown-toggle"><i class="mdicon mdicon-search"></i>
-                </button>
+                <button type="submit" class="navigation-bar-btn js-search-dropdown-toggle"><i class="mdicon mdicon-search"></i></button>
             </div>
         </div>
     </div>
@@ -31,70 +30,34 @@
                 <div class="container">
                     <div class="row row--flex row--vertical-center">
                         <div class="col-xs-5">
-                            <ul id="menu-main-menu" class=" navigation navigation--main navigation--inline">
-                                <li class="menu-item-cat-1">
-                                    <a href="{% url 'home' %}" class="active">Home</a>
-                                </li>
+                            <ul id="menu-main-menu" class="navigation navigation--main navigation--inline">
+                                <li class="menu-item-cat-1"><a href="{% url 'home' %}" class="active">Home</a></li>
+                                <li class="menu-item-cat-1"><a href="{% url 'home' %}" class="active">Trending</a></li>
 
                                 <li class="menu-item-cat-1 menu-item-has-children">
-                                    <a href="single-1.html">Single</a>
+                                    <a href="javascript:void(0)">Category</a>
                                     <ul class="sub-menu">
-                                        <li><a href="single-1.html">single-1</a>
-                                        </li>
-                                        <li><a href="single-2.html">single-2</a>
-                                        </li>
-                                        <li><a href="single-3.html">single-3</a>
-                                        </li>
-                                    </ul>
-                                </li>
-
-                                <li class="menu-item-cat-1 menu-item-has-children">
-                                    <a href="#">Archive</a>
-                                    <ul class="sub-menu">
-                                        <li class="menu-item-has-children">
-                                            <a href="category-1.html">Category</a>
-                                            <ul class="sub-menu">
-                                                <li><a href="category-1.html">Category-1</a>
-                                                </li>
-                                                <li><a href="category-2.html">Category-2</a>
-                                                </li>
-                                                <li><a href="category-3.html">Category-3</a>
-                                                </li>
-                                            </ul>
-                                        </li>
-                                        <li><a href="tags.html">Archive Tags</a>
-                                        </li>
-                                        <li class="menu-item-has-children">
-                                            <a href="author.html">Author</a>
-                                            <ul class="sub-menu">
-                                                <li><a href="author.html">Author</a>
-                                                </li>
-                                                <li><a href="author-no-sidebar.html">Author No Sidebar</a>
-                                                </li>
-                                            </ul>
-                                        </li>
+                                        {% for category in categories %}
+                                            <li><a href="single-1.html">{{ category.name }}</a></li>
+                                        {% endfor %}
                                     </ul>
                                 </li>
 
                                 {% if user.is_authenticated %}
-                                <li class="menu-item-cat-1 menu-item-has-children">
-                                    <a href="#">Profile</a>
-                                    <ul class="sub-menu">
-                                        <li><a href="{% url 'user:profileview' user.username %}">My Profile</a>
-                                        </li>
-                                        <li><a href="{% url 'home' %}">Add Blog</a>
-                                        </li>
-                                        <li><a href="{% url 'user:profileUpdateView' user.username %}">Settings</a>
-                                        </li>
-                                        <li><a href="{% url 'user:logoutview' %}">Logout</a>
-                                        </li>
-                                    </ul>
-                                </li>
+                                    <li class="menu-item-cat-1 menu-item-has-children">
+                                        <a href="javascript:void(0)">{{ user.profile.name }}</a>
+                                        <ul class="sub-menu">
+                                            <li><a href="{% url 'user:profileview' user.username %}">My Profile</a></li>
+                                            <li><a href="{% url 'post:addPost' %}">Add Post</a></li>
+                                            <li><a href="{% url 'user:profileUpdateView' user.username %}">Settings</a></li>
+                                            <li><a href="{% url 'user:logoutview' %}">Logout</a></li>
+                                        </ul>
+                                    </li>
                                 {% else %}
-                                <li class="menu-item-cat-1">
-                                    <a href="{% url 'user:signinview' %}">Login</a> / 
-                                    <a href="{% url 'user:signupview' %}">Register</a>
-                                </li>
+                                    <li class="menu-item-cat-1">
+                                        <a href="{% url 'user:signinview' %}">Login</a> /
+                                        <a href="{% url 'user:signupview' %}">Register</a>
+                                    </li>
                                 {% endif %}
                             </ul>
                         </div>
@@ -110,23 +73,19 @@
                         <div class="col-xs-5 text-right">
                             <div class="header-search-follow">
                                 <ul class="social-list social-list--lg list-horizontal">
-                                    <li><a href="#"><i class="mdicon mdicon-facebook"></i></a>
-                                    </li>
-                                    <li><a href="#"><i class="mdicon mdicon-twitter"></i></a>
-                                    </li>
-                                    <li><a href="#"><i class="mdicon mdicon-linkedin"></i></a>
-                                    </li>
+                                    <li><a href="javascript:void(0)"><i class="mdicon mdicon-facebook"></i></a></li>
+                                    <li><a href="javascript:void(0)"><i class="mdicon mdicon-twitter"></i></a></li>
+                                    <li><a href="javascript:void(0)"><i class="mdicon mdicon-linkedin"></i></a></li>
                                 </ul>
-                                <button type="submit" class="navigation-bar-btn js-search-dropdown-toggle"><i class="mdicon mdicon-search"></i>
-                                </button>
+                                <button type="submit" class="navigation-bar-btn js-search-dropdown-toggle"><i class="mdicon mdicon-search"></i></button>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <!-- .header-search-dropdown -->
+            <!-- header-search-dropdown -->
         </div>
-        <!-- .container -->
+        <!-- container -->
     </nav>
     <!-- Navigation bar -->
 </header>

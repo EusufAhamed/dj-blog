@@ -2,20 +2,23 @@ from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
-from django.http import HttpResponseForbidden
 
 from user.forms import UserSignupForm, UserSigninForm, UserProfileUpdateForm
+from utils.paginator import pagination
 from user.models import User, Profile
 
 # Create your views here.
 
+# sign in function
 def signin(req):
     # if user is already authenticate then the user can not see the login page
     if req.user.is_authenticated:
         return redirect('home')
 
-    data = {}
     template = 'auth/signin.html'
+
+    data = {}
+    data['page_title'] = 'log in - dj blog'
     data['form'] = UserSigninForm(req.POST or None)
 
     if req.method == 'POST':
@@ -27,6 +30,7 @@ def signin(req):
 
             if user is not None:
                 login(req, user)
+
                 # if user is loged out by autometically and he wants to see her/him current page by login again
                 if 'next' in req.POST:
                     return redirect(req.POST.get('next'))
@@ -34,19 +38,23 @@ def signin(req):
                     return redirect('home')
             else:
                 messages.warning(req, 'wrong credentials')
+
     return render(req, template, data)
 
 
+# sign up function
 def signup(req):
     # if user is already authenticate then the user can not see the login page
     if req.user.is_authenticated:
         return redirect('home')
 
+    template = 'auth/signup.html'
+
     form = UserSignupForm(req.POST or None)
     data = {
-        'form': form
+        'form': form,
+        'page_title': 'sign up - dj blog'
     }
-    template = 'auth/signup.html'
 
     if req.method == 'POST':
         if form.is_valid():
@@ -67,11 +75,17 @@ def signup(req):
 
 @login_required(login_url='user:signinview')
 def profile(req, username):
-    data = {}
-    data['userinfo'] = User.objects.get(username=username)
     template = 'profile/profile.html'
 
+    data = {}
+    data['userinfo'] = User.objects.get(username=username)
+    user_post_list = data['userinfo'].user_post.all().order_by('-id')
+
+    # pagination - user post list
+    data['posts'] = pagination(req, user_post_list)
+    
     return render(req, template, data)
+
 
 @login_required(login_url='user:signinview')
 def profile_update(req, username):
@@ -82,7 +96,7 @@ def profile_update(req, username):
     
     # a user can not see othere user setting page
     if req.user.id != data['userinfo'].id:
-        return HttpResponseForbidden('you are restricted to access this page')
+        return render(req, '404.html', {'error': 'you are restricted to access this page'})
     
     if req.method == 'POST':
         if data['form'].is_valid():

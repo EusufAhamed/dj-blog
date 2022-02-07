@@ -1,0 +1,41 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <title>404 Not Found</title>
+
+    <!-- Favicon -->
+    <link rel="icon" href="{% static 'img/xfavicon.png.pagespeed.ic.LpAAi3cc7V.png' %}" sizes="192x192"/>
+    <!-- Vendor, Theme, nelly, single, gallery, 404 CSS -->
+    <link rel="stylesheet" href="{% static 'css/all.css' %}" />
+    <!-- font -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&amp;display=swap"/>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&amp;display=swap"/>
+</head>
+
+<body class="home design-404">
+    <!-- Site wrapper -->
+    <div class="site-wrapper">
+        <div class="site-content">
+            <div class="atbs-404-block atbs-block atbs-404-block--fullwidth">
+                <div class="container container--narrow">
+                    <div class="error-page text-center">
+                        <div class="error-page-top">
+                            <div class="error-text-top">
+                                <img src="{% static 'img/404_03.png' %}" alt="file not found"/>
+                                <div class="error-text-top-sub">
+                                    <h1>error 404</h1>
+                                    <h3>Oops! This Page Could Not Be Found</h3>
+                                    <p class="error-notice">{{ error }}</p>
+                                    <a class="btn btn-light" href="{% url 'home' %}" role="button">Go To Home Page</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- site-wrapper -->
+</body>
+</html>

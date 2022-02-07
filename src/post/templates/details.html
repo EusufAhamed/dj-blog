@@ -1,0 +1,602 @@
+{% extends 'base_1.html' %}
+{% load static %}
+{% block title %}
+ {{ page_title|title }}
+{% endblock %}
+{% block body %}
+<!-- site-content -->
+<div class="site-content">
+    <div class=" atbs-block atbs-block--fullwidth single-block-top ">
+        <div class="container">
+        <div class="single-block-top__inner">
+            <div class="single-entry-thumb post__thumb">
+                <div class="background-img" style="background:url({{ post.image.url }}); background-attachment:fixed!important;"></div>
+            </div>
+            <header class="single-head post__head text-left">
+                <a href="category-1.html" class="post__cat cat-style-2 ">{{ post.category.name }}</a>
+                <h1 class="post-title post__title">{{ post.title }}</h1>
+                <!-- Entry meta -->
+                <div class="entry-author post-author ">
+                    <a href="{% url 'user:profileview' post.user.username %}" target="_blank" class="author-avatar">
+                        {% if post.user.profile.profile_image %}
+                        <img src="{{ post.user.profile.profile_image.url }}" alt="file not found"/>
+                        {% endif %}
+                    </a>
+                    <div class="author__text">
+                    <a class="author-name " href="{% url 'user:profileview' post.user.username %}" target="_blank">{{ post.user.profile.name }}</a> 
+                    </div>
+                </div>
+            </header>
+        </div>
+        </div>
+    </div>
+    <!--==-->
+    <div class="atbs-block--fullwidth">
+        <div class="container">
+            <div class="row">
+                <div class="atbs-main-col post-single--left">
+                    <div class="atbs-block post post-single">
+                        <div class="post-single__inner">
+                        <article class="post--single post--vertical post--vertical__lg">
+                            <div class="single-content">
+                                <div class="single-content__inner clearfix">
+                                    <div class="single-content__top-left js-sticky-sidebar text-center">
+                                    <div class="entry-author post-author ">
+                                        <a href="{% url 'user:profileview' post.user.username %}" class="author-avatar" target="_blank">
+                                        {% if post.user.profile.profile_image %}
+                                        <img src="{{ post.user.profile.profile_image.url }}" alt="file not found">
+                                        {% endif %}
+                                        </a>
+                                        <div class="author__text">
+                                            <a class="author-name " href="{% url 'user:profileview' post.user.username %}" target="_blank">{{ post.user.profile.name }}</a> 
+                                        </div>
+                                    </div>
+                                    <span class="number-share">126</span>
+                                    <span>share:</span>
+                                    <div class="post__social">
+                                        <ul class="social-list social-list--sm">
+                                            <li><a href="#"><i class="mdicon mdicon-facebook "></i></a>
+                                            </li>
+                                            <li><a href="#"><i class="mdicon mdicon-instagram "></i></a>
+                                            </li>
+                                            <li><a href="#"><i class="mdicon mdicon-twitter "></i></a>
+                                            </li>
+                                            <li><a href="#"><i class="mdicon mdicon-youtube"></i></a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    </div>
+                                    <div class="single-content__top-right">
+                                    <div class="entry-meta">
+                                        <span class="entry-views"><i class="mdicon mdicon-visibility"></i>1806 views</span>
+                                        <span class="entry-comment"><i class="mdicon mdicon-chat_bubble_outline"></i> 20 comment</span>
+                                        <div class="entry-tags">
+                                            <i class="mdicon mdicon-local_offer"></i>
+                                            <ul class="">
+                                                <li><a href="tags.html" class="post-tag" rel="tag">Technology</a></li>
+                                                <li><a href="tags.html" class="post-tag" rel="tag">Space</a></li>
+                                                <li><a href="tags.html" class="post-tag" rel="tag">Apps</a></li>
+                                                <li><a href="tags.html" class="post-tag" rel="tag">Future</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="single-body entry-content">
+                                        {{ post.description|safe }}
+                                    </div>
+                                    <footer class="single-footer entry-footer">
+                                        <div class="entry-interaction entry-interaction--horizontal">
+                                            <div class="entry-interaction__left">
+                                                <time class="time published" title="{{ post.pub_date }}">Published {{ post.pub_date }}</time>
+                                            </div>
+                                            <div class="entry-interaction__right">
+                                                <div class="entry-tags">
+                                                <ul class="">
+                                                    <li><a href="tags.html" class="post-tag" rel="tag">Technology</a></li>
+                                                    <li><a href="tags.html" class="post-tag" rel="tag">Space</a></li>
+                                                    <li><a href="tags.html" class="post-tag" rel="tag">Apps</a></li>
+                                                    <li><a href="tags.html" class="post-tag" rel="tag">Future</a></li>
+                                                </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </footer>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- .single-content -->
+                        </article>
+                        <!--=====================-->
+                        <div class="navigation-author__wrap ">
+                            <div class="author-box  ">
+                                <div class="author-avatar">
+                                    {% if post.user.profile.profile_image %}
+                                    <img alt="Ryan Reynold" src="{{ post.user.profile.profile_image.url }}" class="avatar photo">
+                                    {% endif %}
+                                </div>
+                                <div class="author-box__text">
+                                    <div class="author-name ">
+                                    <a href="{% url 'user:profileview' post.user.username %}" target="_blank" class="entry-author__name">{{ post.user.profile.name }}</a>
+                                    </div>
+                                    <div class="author-bio">
+                                        {{ post.user.profile.about|safe }}
+                                    </div>
+                                    <ul class="author-social  social-list social-list--xs list-horizontal  ">
+                                    <li>follow </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="posts-navigation single-entry-section  clearfix">
+                                <div class="posts-navigation__prev">
+                                    <article class="post post--horizontal post--horizontal-middle post--horizontal-xxs">
+                                    <div class="post__thumb">
+                                    </div>
+                                    <div class="post__text ">
+                                        <a href="single-1.html">
+                                        <img src="img/xlight-prev-arrow.png.pagespeed.ic.mMbHxejnu8.png" alt="file not found">
+                                        <span>Prev</span>
+                                        </a>
+                                        <div class="post__text-wrap clearfix">
+                                            <h3 class="post__title"><a href="single-1.html">These Are The Days That Must Happen To You</a></h3>
+                                        </div>
+                                    </div>
+                                    </article>
+                                </div>
+                                <div class="posts-navigation__next">
+                                    <article class="post post--horizontal post--horizontal-middle post--horizontal-reverse post--horizontal-xxs">
+                                    <div class="post__thumb">
+                                    </div>
+                                    <div class="post__text  ">
+                                        <a href="single-1.html">
+                                        <span>Next</span>  
+                                        <img src="img/xlight-next-arrow.png.pagespeed.ic.L-f5sr7DIP.png" alt="file not found">
+                                        </a>
+                                        <div class="post__text-wrap clearfix">
+                                            <h3 class="post__title"><a href="single-1.html">These Are The Days That Must Happen To You</a></h3>
+                                        </div>
+                                    </div>
+                                    </article>
+                                </div>
+                                <div class="clearfix"></div>
+                            </div>
+                        </div>
+                        <!--=====================-->
+                        <!--========================-->
+                        <!-- atbs-block atbs-posts-slider -->
+                        <div class="atbs-block atbs-block--fullwidth   atbs-posts-list">
+                            <div class=" block-heading ">
+                                <h4 class="block-heading__title title-style-2">featured</h4>
+                            </div>
+                            <div class=" block__wrap  ">
+                                <div class="post--vertical-list row">
+                                    <div class="col-md-6 col-sm-6  post--vertical-list__item">
+                                    <article class="post post--vertical">
+                                        <div class="post__thumb">
+                                            <a href="single-1.html"><img src="img/1.jpg.pagespeed.ce.hT_NBPpmwF.jpg" alt="file not found"></a>
+                                            <div class="post-date date-style-2">
+                                                <time class="time published" datetime="2016-08-20T08:53+00:00" title="August 20, 2016 at 08:53 am">
+                                                <span class="post-day">20</span>
+                                                <span class="post-th">Feb</span>
+                                                </time>
+                                            </div>
+                                        </div>
+                                        <div class="post__text">
+                                            <a class="post__cat " href="category-1.html">fashion</a>
+                                            <h3 class="post__title"> <a href="single-1.html"> The Journey of a Thousand Miles Begins With One Step</a></h3>
+                                            <div class="post__excerpt">Risus commodo viverra maecenas accumsan lacus vel facilisis. Quis ipsum suspendisse ultrices gravida. </div>
+                                            <div class="post__readmore clearfix ">
+                                                <a href="single-1.html" class="button__readmore"><span class="readmore__text">read More </span>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </article>
+                                    </div>
+                                    <div class="col-md-6 col-sm-6  post--vertical-list__item">
+                                    <article class="post post--vertical">
+                                        <div class="post__thumb">
+                                            <a href="single-1.html"><img src="img/2.jpg.pagespeed.ce.nm2l7NkoF1.jpg" alt="file not found"></a>
+                                            <div class="post-date date-style-2">
+                                                <time class="time published" datetime="2016-08-20T08:53+00:00" title="August 20, 2016 at 08:53 am">
+                                                <span class="post-day">20</span>
+                                                <span class="post-th">Feb</span>
+                                                </time>
+                                            </div>
+                                        </div>
+                                        <div class="post__text">
+                                            <a class="post__cat " href="category-1.html">fashion</a>
+                                            <h3 class="post__title"> <a href="single-1.html"> The Journey of a Thousand Miles Begins With One Step</a></h3>
+                                            <div class="post__excerpt">Risus commodo viverra maecenas accumsan lacus vel facilisis. Quis ipsum suspendisse ultrices gravida. </div>
+                                            <div class="post__readmore clearfix ">
+                                                <a href="single-1.html" class="button__readmore"><span class="readmore__text">read More </span>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </article>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- atbs-block  atbs-posts-slider -->
+                        <!--========================-->
+                        <!--===========comment==============-->
+                        <div class="comments-section ">
+                            <div id="comments" class="comments-area">
+                                <h2 class="comments-title title-style-2">Comments</h2>
+                                <ol class="comment-list">
+                                    <li id="comment-4" class="comment even thread-even depth-1 parent">
+                                    <div id="div-comment-4" class="comment-body">
+                                        <footer class="comment-meta">
+                                            <div class="comment-author vcard">
+                                                <img src="img/xuser_03.jpg.pagespeed.ic.2ikPXlbvvY.jpg" class="avatar photo" alt="avatar"><b class="fn">Diane Gregory</b><span class="says">says:</span>
+                                            </div>
+                                            <!-- .comment-author -->
+                                            <div class="comment-metadata">
+                                                <a href="#">
+                                                <time datetime="2016-10-21T13:31:45+00:00">October 21, 2016 at 1:31 pm</time>
+                                                </a>
+                                            </div>
+                                            <!-- .comment-metadata -->
+                                        </footer>
+                                        <!-- .comment-meta -->
+                                        <div class="comment-content">
+                                            <p>There's good news, and there's bad news. The bad news is, it's not the drug. You're here, in the astral plane. You went too far in the make believe and got lost in your mind, consciousness, and now you're trapped in this, no place. Where every day is the same, where you can imagine yourself a kingdom. but nothing is ever real.</p>
+                                        </div>
+                                        <!-- .comment-content -->
+                                        <div class="reply">
+                                            <a rel="nofollow" class="comment-reply-link" href="#" aria-label="Reply to Sculpture Fan">Reply</a>
+                                        </div>
+                                    </div>
+                                    <!-- .comment-body -->
+                                    <ol class="children">
+                                        <li id="comment-5" class="comment byuser comment-author-melchoyce bypostauthor odd alt depth-2 parent">
+                                            <div id="div-comment-5" class="comment-body">
+                                                <footer class="comment-meta">
+                                                <div class="comment-author vcard">
+                                                    <img src="img/xuser_03.jpg.pagespeed.ic.2ikPXlbvvY.jpg" class="avatar photo" alt="avatar"><a href="#" rel="external nofollow" class="url">Ryan Reynold</a><span class="says">says:</span>
+                                                </div>
+                                                <!-- .comment-author -->
+                                                <div class="comment-metadata">
+                                                    <a href="#">
+                                                    <time datetime="2016-10-21T13:31:45+00:00">October 21, 2016 at 1:31 pm</time>
+                                                    </a>
+                                                    <span class="edit-link">
+                                                    <a class="comment-edit-link" href="#">Edit</a>
+                                                    </span>
+                                                </div>
+                                                <!-- .comment-metadata -->
+                                                </footer>
+                                                <!-- .comment-meta -->
+                                                <div class="comment-content">
+                                                <p>And what's the good news?</p>
+                                                </div>
+                                                <!-- .comment-content -->
+                                                <div class="reply">
+                                                <a rel="nofollow" class="comment-reply-link" href="#" aria-label="Reply to Sculpture Fan">Reply</a>
+                                                </div>
+                                            </div>
+                                            <!-- .comment-body -->
+                                            <ol class="children">
+                                                <li id="comment-6" class="comment even depth-3">
+                                                <div id="div-comment-6" class="comment-body">
+                                                    <footer class="comment-meta">
+                                                        <div class="comment-author vcard">
+                                                            <img src="img/xuser_03.jpg.pagespeed.ic.2ikPXlbvvY.jpg" class="avatar photo" alt="avatar"><b class="fn">Diane Gregory</b><span class="says">says:</span>
+                                                        </div>
+                                                        <!-- .comment-author -->
+                                                        <div class="comment-metadata">
+                                                            <a href="#">
+                                                            <time datetime="2016-10-21T13:31:45+00:00">October 21, 2016 at 1:31 pm</time>
+                                                            </a>
+                                                        </div>
+                                                        <!-- .comment-metadata -->
+                                                    </footer>
+                                                    <!-- .comment-meta -->
+                                                    <div class="comment-content">
+                                                        <p>I'm not alone anymore.</p>
+                                                    </div>
+                                                    <!-- .comment-content -->
+                                                    <div class="reply">
+                                                        <a rel="nofollow" class="comment-reply-link" href="#" aria-label="Reply to Sculpture Fan">Reply</a>
+                                                    </div>
+                                                </div>
+                                                <!-- .comment-body -->
+                                                </li>
+                                                <!-- #comment-## -->
+                                            </ol>
+                                            <!-- .children -->
+                                        </li>
+                                        <!-- #comment-## -->
+                                    </ol>
+                                    <!-- .children -->
+                                    </li>
+                                    <!-- #comment-## -->
+                                    <li id="comment-7" class="comment byuser bypostauthor odd alt thread-odd thread-alt depth-1">
+                                    <div id="div-comment-7" class="comment-body">
+                                        <footer class="comment-meta">
+                                            <div class="comment-author vcard">
+                                                <img src="img/xuser_03.jpg.pagespeed.ic.2ikPXlbvvY.jpg" class="avatar photo" alt="avatar"><b class="fn">Ryan Reynold</b><span class="says">says:</span>
+                                            </div>
+                                            <!-- .comment-author -->
+                                            <div class="comment-metadata">
+                                                <a href="#">
+                                                <time datetime="2016-10-21T13:31:45+00:00">October 21, 2016 at 1:31 pm</time>
+                                                </a>
+                                            </div>
+                                            <!-- .comment-metadata -->
+                                        </footer>
+                                        <!-- .comment-meta -->
+                                        <div class="comment-content">
+                                            <p> It's just Thursday. Like the 260th Thursday as a passenger on the cruise ship "Mental Health." On the plus side I've mastered eating with a spoon.</p>
+                                        </div>
+                                        <!-- .comment-content -->
+                                        <div class="reply">
+                                            <a rel="nofollow" class="comment-reply-link" href="#" aria-label="Reply to Sculpture Fan">Reply</a>
+                                        </div>
+                                    </div>
+                                    <!-- .comment-body -->
+                                    </li>
+                                    <!-- #comment-## -->
+                                    <li id="comment-8" class="comment byuser odd alt thread-odd thread-alt depth-1">
+                                    <div id="div-comment-8" class="comment-body">
+                                        <footer class="comment-meta">
+                                            <div class="comment-author vcard">
+                                                <img src="img/xuser_03.jpg.pagespeed.ic.2ikPXlbvvY.jpg" class="avatar photo" alt="avatar"><b class="fn">Diane Gregory</b><span class="says">says:</span>
+                                            </div>
+                                            <!-- .comment-author -->
+                                            <div class="comment-metadata">
+                                                <a href="#">
+                                                <time datetime="2016-10-21T13:31:45+00:00">October 21, 2016 at 1:31 pm</time>
+                                                </a>
+                                            </div>
+                                            <!-- .comment-metadata -->
+                                        </footer>
+                                        <!-- .comment-meta -->
+                                        <div class="comment-content">
+                                            <p>I know, I don't have to be afraid. But I am because look at you. All of you. You're gods, and someday you are going to wake up and realize you don't have to listen to us anymore.</p>
+                                        </div>
+                                        <!-- .comment-content -->
+                                        <div class="reply">
+                                            <a rel="nofollow" class="comment-reply-link" href="#" aria-label="Reply to Sculpture Fan">Reply</a>
+                                        </div>
+                                    </div>
+                                    <!-- .comment-body -->
+                                    </li>
+                                    <!-- #comment-## -->
+                                </ol>
+                                <div id="respond" class="comment-respond">
+                                    <h3 id="reply-title" class="comment-reply-title title-style-2">Leave a Reply <small><a rel="nofollow" id="cancel-comment-reply-link" href="#" style="display: none;">Cancel reply</a></small></h3>
+                                    <form action="#" method="post" id="commentform" class="comment-form" novalidate="">
+                                    <p class="comment-notes"><span id="email-notes">Your email address will not be published.</span> Required fields are marked <span class="required">*</span></p>
+                                    <p class="comment-form-comment">
+                                        <label for="comment">Comment</label>
+                                        <textarea id="comment" name="comment" cols="45" rows="8" maxlength="65525" required="required"></textarea>
+                                    </p>
+                                    <p class="comment-form-author">
+                                        <label for="author">Name <span class="required">*</span></label>
+                                        <input id="author" name="author" type="text" value="" size="30" maxlength="245" required="required">
+                                    </p>
+                                    <p class="comment-form-email">
+                                        <label for="email">Email <span class="required">*</span></label>
+                                        <input id="email" name="email" type="email" value="" size="30" maxlength="100" aria-describedby="email-notes" required="required">
+                                    </p>
+                                    <p class="comment-form-url">
+                                        <label for="url">Website</label>
+                                        <input id="url" name="url" type="url" value="" size="30" maxlength="200">
+                                    </p>
+                                    <p class="form-submit">
+                                        <input name="submit" type="submit" id="submit" class="submit" value="post comment">
+                                        <input type="hidden" name="comment_post_ID" value="44" id="comment_post_ID">
+                                        <input type="hidden" name="comment_parent" id="comment_parent" value="0">
+                                    </p>
+                                    </form>
+                                </div>
+                                <!-- #respond -->
+                            </div>
+                            <!-- #comments -->
+                        </div>
+                        <!--===========end comment==============-->
+                        </div>
+                    </div>
+                </div>
+                <div class="atbs-sub-col  sidebar js-sticky-sidebar">
+                    <div class="atbs-widget widget widget-about-me">
+                        <div class="widget__inner about-me__inner">
+                            <div class="about-img">
+                                <div class="background-img" style="background-image:url(img/x15.jpg.pagespeed.ic.W5mBIV_yjP.jpg)"></div>
+                                <a class="link-overlay" href="author.html"></a>
+                            </div>
+                            <div class="about__text text-center">
+                                <a class="author-name" href="author.html">Adeline Eirene</a>
+                                <div class="about-bio">
+                                    Sed nomauris vitae erat consequuctor eu inelit. Class aptent taciti sociosqud lito. 
+                                </div>
+                                <ul class="social-list social-list--sm list-horizontal ">
+                                    <li><a href="#"><i class="mdicon mdicon-facebook"></i></a>
+                                    </li>
+                                    <li><a href="#"><i class="mdicon mdicon-twitter"></i></a>
+                                    </li>
+                                    <li><a href="#"><i class="mdicon mdicon-instagram"></i></a>
+                                    </li>
+                                    <li><a href="#"><i class="mdicon mdicon-linkedin"></i></a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- widget post-list-->
+                    <div class="atbs-widget widget widget-posts-list ">
+                    <div class="widget__inner widget-posts-list__inner  ">
+                        <div class="widget__title clearfix">
+                            <h4 class="widget__title-text">post list</h4>
+                        </div>
+                        <div class="widget__wrap widget-posts-list__wrap clearfix">
+                            <ul class=" widget-post  list-unstyled   clearfix">
+                                <li class="widget-posts-list__item">
+                                <article class="post post--horizontal  post--horizontal-xxs post--horizontal-middle ">
+                                    <div class="post__thumb">
+                                        <a href="single-1.html"><img src="img/2.jpg.pagespeed.ce.nm2l7NkoF1.jpg" alt="file not found"></a>
+                                    </div>
+                                    <div class="post__text">
+                                        <div class="post__text-wrap">
+                                            <h3 class="post__title "><a href="single-1.html">Chrissy Teigen & Emily Ratajkowski Have</a></h3>
+                                            <div class="post-date">
+                                            <time class="time published" datetime="2019-03-06T08:59:52+00:00" title="March 6, 2019 at 8:59 am">Feb 25  - 6 min read</time>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </article>
+                                </li>
+                                <li class="widget-posts-list__item">
+                                <article class="post post--horizontal  post--horizontal-xxs post--horizontal-middle ">
+                                    <div class="post__thumb">
+                                        <a href="single-1.html"><img src="img/x14.jpg.pagespeed.ic.qa8t3QElc8.jpg" alt="file not found"></a>
+                                    </div>
+                                    <div class="post__text">
+                                        <div class="post__text-wrap">
+                                            <h3 class="post__title "><a href="single-1.html">Chrissy Teigen & Emily Ratajkowski Have</a></h3>
+                                            <div class="post-date">
+                                            <time class="time published" datetime="2019-03-06T08:59:52+00:00" title="March 6, 2019 at 8:59 am">Feb 25  - 6 min read</time>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </article>
+                                </li>
+                                <li class="widget-posts-list__item">
+                                <article class="post post--horizontal post--horizontal-xxs post--horizontal-middle  ">
+                                    <div class="post__thumb">
+                                        <a href="single-1.html"><img src="img/x19.jpg.pagespeed.ic.Kme0O2oxjf.jpg" alt="file not found"></a>
+                                    </div>
+                                    <div class="post__text">
+                                        <div class="post__text-wrap">
+                                            <h3 class="post__title "><a href="single-1.html">Chrissy Teigen & Emily Ratajkowski Have</a></h3>
+                                            <div class="post-date">
+                                            <time class="time published" datetime="2019-03-06T08:59:52+00:00" title="March 6, 2019 at 8:59 am">Feb 25  - 6 min read</time>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </article>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    </div>
+
+                    <!-- widget-posts-list-2  -->
+                    <div class="atbs-widget widget widget-posts--vertical-list  ">
+                    <div class="widget__inner widget-posts--vertical-list__inner  ">
+                        <div class="widget__title ">
+                            <h4 class="widget__title-text ">The Latest News</h4>
+                        </div>
+                        <div class="widget__wrap widget-posts--vertical-list__wrap clearfix ">
+                            <div class=" widget-posts--vertical-list__item">
+                                <article class="post post--vertical ">
+                                <div class="post__thumb">
+                                    <div class="background-img" style="background-image:url(img/10.jpg.pagespeed.ce.RbfjO7YUqM.jpg)"></div>
+                                    <a class="link-overlay" href="single-1.html"></a>
+                                </div>
+                                <div class="post__text clearfix">
+                                    <a class="post__cat " href="category-1.html">travel</a>
+                                    <h3 class="post__title">
+                                        <a href="single-1.html">It Is Not in the Stars to Hold Our Destiny but in Ourselves</a>
+                                    </h3>
+                                </div>
+                                </article>
+                            </div>
+                            <div class=" widget-posts--vertical-list__item">
+                                <article class="post post--vertical ">
+                                <div class="post__thumb">
+                                    <div class="background-img" style="background-image:url(img/x19.jpg.pagespeed.ic.Kme0O2oxjf.jpg)"></div>
+                                    <a class="link-overlay" href="single-1.html"></a>
+                                </div>
+                                <div class="post__text clearfix">
+                                    <a class="post__cat " href="category-1.html">travel</a>
+                                    <h3 class="post__title">
+                                        <a href="single-1.html">It Is Not in the Stars to Hold Our Destiny but in Ourselves</a>
+                                    </h3>
+                                </div>
+                                </article>
+                            </div>
+                            <div class=" widget-posts--vertical-list__item">
+                                <article class="post post--vertical ">
+                                <div class="post__thumb">
+                                    <div class="background-img" style="background-image:url(img/22.jpg.pagespeed.ce.ZMF5nNEbAf.jpg)"></div>
+                                    <a class="link-overlay" href="single-1.html"></a>
+                                </div>
+                                <div class="post__text clearfix">
+                                    <a class="post__cat " href="category-1.html">travel</a>
+                                    <h3 class="post__title">
+                                        <a href="single-1.html">It Is Not in the Stars to Hold Our Destiny but in Ourselves</a>
+                                    </h3>
+                                </div>
+                                </article>
+                            </div>
+                        </div>
+                    </div>
+                    </div>
+                    <!-- widget-posts-list-2  -->
+
+                    <!-- category -->
+                    <div class="atbs-widget widget  widget-categories ">
+                    <div class="widget__inner category_inner ">
+                        <div class="widget__title ">
+                            <h4 class="widget__title-text title-style-2">category</h4>
+                        </div>
+                        <div class="widget__wrap category_wrap ">
+                            <ul class="list-unstyled category-list ">
+                                <li>
+                                <div class="category-tile">
+                                    <a href="category-1.html"> lift style</a>
+                                </div>
+                                <div class="category-number"> 120</div>
+                                </li>
+                                <li>
+                                <div class="category-tile">
+                                    <a href="category-1.html"> audio</a>
+                                </div>
+                                <div class="category-number"> 50</div>
+                                </li>
+                                <li>
+                                <div class="category-tile">
+                                    <a href="category-1.html"> gallery</a>
+                                </div>
+                                <div class="category-number"> 100</div>
+                                </li>
+                                <li>
+                                <div class="category-tile">
+                                    <a href="category-1.html"> images</a>
+                                </div>
+                                <div class="category-number"> 20</div>
+                                </li>
+                                <li>
+                                <div class="category-tile">
+                                    <a href="category-1.html"> standard</a>
+                                </div>
+                                <div class="category-number"> 125</div>
+                                </li>
+                                <li>
+                                <div class="category-tile">
+                                    <a href="category-1.html"> status</a>
+                                </div>
+                                <div class="category-number"> 03</div>
+                                </li>
+                                <li>
+                                <div class="category-tile">
+                                    <a href="category-1.html"> video</a>
+                                </div>
+                                <div class="category-number"> 60</div>
+                                </li>
+                            </ul>
+                            <div class="category-img">
+                                <div class="background-img" style="background:url(img/x5.jpg.pagespeed.ic.hcEzVmafKJ.jpg)"></div>
+                            </div>
+                        </div>
+                    </div>
+                    </div>
+                 </div>
+            </div>
+        </div>
+    </div>
+    <!--==-->
+</div>
+<!-- site-content -->
+{% endblock %}

@@ -1,0 +1,26 @@
+{% if posts.has_other_pages %}
+    <nav class="atbs-pagination">
+        <h4 class="atbs-pagination__title sr-only">Posts navigation</h4>
+        <div class="atbs-pagination__links">
+            {% if posts.has_previous %}
+                {% comment %} <a class="atbs-pagination__item atbs-pagination__item-next" href="#"><i class="mdicon mdicon-arrow_back"></i></a> {% endcomment %}
+                <a class="atbs-pagination__item" href="?page={{ posts.previous_page_number }}">Previous page</a>
+            {% endif %}
+
+            {% for page in posts.paginator.page_range %}
+                {% if page == posts.number %}
+                    <a class="atbs-pagination__item atbs-pagination-active__item" href="?page={{ page }}">{{ page }}</a>
+                {% else %}
+                    <a class="atbs-pagination__item" href="?page={{ page }}">{{ page }}</a>
+                {% endif %}
+            {% endfor %}
+
+            {% comment %} <span class="atbs-pagination__item atbs-pagination__dots">...</span> {% endcomment %}
+
+            {% if posts.has_next %}
+                <a class="atbs-pagination__item" href="?page={{ posts.next_page_number }}">Next page</a>
+                {% comment %} <a class="atbs-pagination__item atbs-pagination__item-next" href="#"><i class="mdicon mdicon-arrow_forward"></i></a> {% endcomment %}
+            {% endif %}
+        </div>
+    </nav>
+{% endif %}

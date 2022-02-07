@@ -15,6 +15,7 @@ THIRD_PARTY_APPS  = [
 
 LOCAL_APPS = [
     'user',
+    'post',
 ]
 
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
@@ -42,6 +43,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'utils.context_processors.context_data',
             ],
         },
     },

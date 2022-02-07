@@ -11,14 +11,7 @@
     
     <!-- edit form column -->
     <div class="col-md-9 personal-info">
-      {% if messages %}
-      {% for message in messages %}
-      <div class="alert alert-{{ message.tags }} alert-dismissable">
-        <a class="panel-close close" data-dismiss="alert">×</a>
-        {{ message }}
-      </div>
-      {% endfor %}
-      {% endif %}
+      {% include "message_1.html" %}
       
       <h3>Personal info</h3>
       

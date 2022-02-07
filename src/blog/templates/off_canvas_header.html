@@ -1,0 +1,46 @@
+{% load static %}
+<!-- Off-canvas menu -->
+<div id="atbs-offcanvas-primary" class="atbs-offcanvas js-atbs-offcanvas">
+    <div class="atbs-offcanvas__inner">
+        <div class="atbs-offcanvas__title">
+            <ul class="social-list list-horizontal">
+                <li><a href="javascript:void(0)"><i class="mdicon mdicon-facebook"></i></a></li>
+                <li><a href="javascript:void(0)"><i class="mdicon mdicon-twitter"></i></a></li>
+                <li><a href="javascript:void(0)"><i class="mdicon mdicon-youtube"></i></a></li>
+                <li><a href="javascript:void(0)"><i class="mdicon mdicon-google-plus"></i></a></li>
+            </ul>
+            <a href="#atbs-offcanvas-primary" class="atbs-offcanvas-close js-atbs-offcanvas-close" aria-label="Close"><span aria-hidden="true">&#10005;</span></a>
+        </div>
+        <div class="atbs-offcanvas__section atbs-offcanvas__section-navigation">
+            <ul id="menu-offcanvas-menu" class="navigation navigation--offcanvas">
+                <li class="menu-item-cat-1"><a href="{% url 'home' %}" class="active">Home</a></li>
+                <li class="menu-item-cat-1"><a href="{% url 'home' %}" class="active">Trending</a></li>
+
+                <li class="menu-item-cat-1 menu-item-has-children">
+                    <a href="javascript:void(0)">Category</a>
+                    <ul class="sub-menu">
+                        {% for category in categories %}
+                            <li><a href="single-1.html">{{ category.name }}</a></li>
+                        {% endfor %}
+                    </ul>
+                </li>
+
+                {% if user.is_authenticated %}
+                    <li class="menu-item-cat-1 menu-item-has-children">
+                        <a href="javascript:void(0)">{{ user.profile.name }}</a>
+                        <ul class="sub-menu">
+                            <li><a href="{% url 'user:profileview' user.username %}">My Profile</a></li>
+                            <li><a href="{% url 'post:addPost' %}">Add Post</a></li>
+                            <li><a href="{% url 'user:profileUpdateView' user.username %}">Settings</a></li>
+                            <li><a href="{% url 'user:logoutview' %}">Logout</a></li>
+                        </ul>
+                    </li>
+                {% else %}
+                    <li class="menu-item-cat-1"><a href="{% url 'user:signinview' %}">Login</a></li>
+                    <li class="menu-item-cat-1"><a href="{% url 'user:signupview' %}">Register</a></li>
+                {% endif %}
+            </ul>
+        </div>
+    </div>
+</div>
+<!-- Off-canvas menu -->
